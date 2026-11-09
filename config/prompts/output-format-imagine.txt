@@ -1,0 +1,4 @@
+只返回以下两种JSON对象之一，可额外包含符合通用约束的strategy对象：
+询价：{"action":"quote","name":"杯底的星光"}。
+选择：{"action":"select","quoteId":"自己本轮已有候选的真实ID"}。
+action必填，不接受只有name的旧格式。quote的name遵守与玩家相同的80字符上限；select只返回当前候选的quoteId，不返回材料名称。不能返回price、金币修改、公开发言或工具调用。只能使用decision.allowedActions允许的动作；select必须使用game.me.quotes里的ID。允许复用旧材料与参考材料，但不得在名称中指定价格或品质。

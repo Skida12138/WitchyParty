@@ -1,0 +1,20 @@
+[
+  { "name": "晨露", "price": 5, "tier": "white" },
+  { "name": "干枯鼠尾草", "price": 7, "tier": "white" },
+  { "name": "壁炉灰", "price": 9, "tier": "white" },
+  { "name": "月光蘑菇", "price": 25, "tier": "green" },
+  { "name": "会打嗝的薄荷", "price": 35, "tier": "green" },
+  { "name": "萤火虫眼泪", "price": 45, "tier": "green" },
+  { "name": "水晶蜘蛛丝", "price": 80, "tier": "blue" },
+  { "name": "人鱼鳞片", "price": 120, "tier": "blue" },
+  { "name": "雷雨瓶", "price": 180, "tier": "blue" },
+  { "name": "独角兽鬃毛", "price": 350, "tier": "purple" },
+  { "name": "女巫的初恋", "price": 800, "tier": "purple" },
+  { "name": "被封印的月食", "price": 1500, "tier": "purple" },
+  { "name": "凤凰余烬", "price": 2500, "tier": "gold" },
+  { "name": "凝固的时间", "price": 5000, "tier": "gold" },
+  { "name": "沉睡巨龙的心跳", "price": 9000, "tier": "gold" },
+  { "name": "一颗迷路的星星", "price": 12000, "tier": "red" },
+  { "name": "世界树的第一片叶子", "price": 18000, "tier": "red" },
+  { "name": "宇宙诞生前的一秒", "price": 25000, "tier": "red" }
+]

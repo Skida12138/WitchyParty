@@ -1,0 +1,24 @@
+.avatar-connection-mark{position:absolute;bottom:-3px;left:-4px;display:grid;place-items:center;width:18px;height:18px;border:1px solid #b7a09575;border-radius:50%;background:#342c28;color:#ddbb9d;box-shadow:0 0 0 2px var(--bg,#141617);z-index:2}
+.avatar-connection-mark.is-departed{background:#292e2a;color:#9ba794;border-color:#92a08850}
+.avatar-connection-mark>svg.lucide{width:10px;height:10px}
+.avatar.is-disconnected>svg,.ceremony-avatar.is-disconnected>svg{opacity:.6;filter:grayscale(.8)}
+.gathering-player.is-disconnected{opacity:.78!important;filter:none!important}
+.gathering-player.is-disconnected>small{color:#d1b295!important;line-height:1.7}
+.seat.is-disconnected>span>small,.seat.is-disconnected>.seat-badge{color:#d1b295!important}
+.decision-coven-person.is-disconnected small{color:#d1b295}
+.disconnected-players{display:flex;justify-content:center;gap:7px 13px;flex-wrap:wrap;margin:15px auto 0;max-width:760px}
+.disconnected-players>span{display:flex;align-items:center;gap:6px;padding:5px 8px;border:1px solid #ad97852b;border-radius:5px;background:#bba38306;color:#c9b298;font-size:10px;line-height:1.7}
+.disconnected-players strong{font-weight:400}.disconnected-players small{font-size:9px;color:#ac9e8e}
+.disconnected-players svg{flex-shrink:0}
+.rejoining-room{min-height:calc(100svh - 95px);display:flex;align-items:center;justify-content:center;flex-direction:column;padding:45px 25px;text-align:center}
+.rejoining-symbol{position:relative;display:grid;place-items:center;width:92px;height:92px;border:1px solid #b9c6a433;border-radius:50%;background:radial-gradient(#bfcca611,transparent);color:#c0d1a8;margin-bottom:26px;box-shadow:0 0 45px #b7c68f08}
+.rejoining-symbol>.spin{position:absolute;inset:8px;width:74px;height:74px;color:#c0d1a861}
+.rejoining-room h1{font:28px/1.6 var(--serif);color:#e0e6d5;margin:0 0 13px;letter-spacing:1px}
+.rejoining-room>p{font-size:11px;line-height:1.9;color:#9faa97;margin:0;max-width:360px}
+.rejoining-room>.button{margin-top:25px;font-size:11px;gap:8px}
+.room-reconnect-banner{position:fixed;left:50%;top:16px;transform:translateX(-50%);z-index:80;display:flex;align-items:center;gap:8px;width:max-content;max-width:calc(100vw - 32px);padding:10px 16px;border:1px solid #b5c79f44;border-radius:8px;background:#232c23f5;box-shadow:0 6px 30px #0003;color:#c7d7b8;font-size:11px;line-height:1.8}
+.room-reconnect-banner>svg{flex-shrink:0}
+.ceremony-presence{display:block;font-size:8px;color:#bda88f;margin-top:4px;line-height:1.6}
+.results-rank-person .results-player-presence{display:inline-block;color:#a6ad9e;font-size:8px;margin-left:7px}
+@media(max-width:700px){.rejoining-room{min-height:calc(100svh - 79px);padding:35px 24px}.rejoining-room h1{font-size:24px}.rejoining-room>p{font-size:10px}.rejoining-symbol{width:80px;height:80px;margin-bottom:22px}.rejoining-symbol>.spin{inset:7px;width:64px;height:64px}.room-reconnect-banner{top:12px;font-size:10px;padding:9px 12px}.avatar-connection-mark{width:16px;height:16px;left:-3px;bottom:-3px}.avatar-connection-mark>svg{width:9px;height:9px}.ceremony-presence{font-size:7px}.results-rank-person .results-player-presence{font-size:7px;margin-left:4px}}
+@media(max-width:700px){.disconnected-players{gap:6px;margin-top:12px}.disconnected-players>span{font-size:9px;gap:5px;padding:4px 7px}.disconnected-players small{font-size:8px}.disconnected-players svg{width:11px;height:11px}}

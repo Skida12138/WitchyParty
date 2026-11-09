@@ -1,0 +1,236 @@
+.winner-celebration {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  color: #f3ead3;
+  cursor: pointer;
+  isolation: isolate;
+  scrollbar-width: thin;
+  scrollbar-color: #c5ae7133 transparent;
+}
+
+.winner-frost {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: #10161366;
+  -webkit-backdrop-filter: blur(10px) saturate(.8);
+  backdrop-filter: blur(10px) saturate(.8);
+}
+
+.winner-stage {
+  width: min(100%, 580px);
+  margin: 0 auto;
+  padding: calc(50vh - 86px) 26px 36px;
+  padding-top: calc(50svh - 86px);
+  text-align: center;
+}
+
+.winner-avatar-target {
+  width: 172px;
+  height: 172px;
+  margin: 0 auto;
+  pointer-events: none;
+}
+
+.winner-flight-avatar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  transform-origin: center;
+  pointer-events: none;
+  will-change: transform, opacity;
+  isolation: isolate;
+}
+
+.winner-celebration .winner-flight-avatar .avatar {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1.5px solid color-mix(in srgb, var(--avatar-color) 60%, #e8c878);
+  background: radial-gradient(circle at 35% 25%, color-mix(in srgb, var(--avatar-color) 22%, #343c2d), #232b25 78%);
+  box-shadow: 0 0 0 7px #e6c77c08, inset 0 0 32px #e6c77c0a, 0 10px 45px #111a1740;
+  color: var(--avatar-color);
+}
+
+.winner-celebration .winner-flight-avatar .avatar > svg {
+  width: 64%;
+  height: 64%;
+}
+
+.winner-celebration .winner-flight-avatar .bot-dot {
+  width: 28px;
+  height: 28px;
+  right: 7px;
+  bottom: 6px;
+  border: 2px solid #343d2a;
+  font-size: 17px;
+}
+
+.winner-gold-aura {
+  position: absolute;
+  inset: -190px;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(circle, #f3d68342 0%, #e4bd6338 16%, #d6a74928 30%, #c08d3417 47%, #af792608 60%, transparent 73%);
+  filter: blur(12px);
+}
+
+.winner-gold-aura::before {
+  content: '';
+  position: absolute;
+  inset: -72px;
+  border-radius: 50%;
+  background: repeating-conic-gradient(from 18deg, #efcf7a18 0deg 5deg, transparent 9deg 24deg, #d9a94416 28deg 32deg, transparent 38deg 50deg);
+  -webkit-mask-image: radial-gradient(circle, transparent 13%, #000 28%, #0009 44%, transparent 69%);
+  mask-image: radial-gradient(circle, transparent 13%, #000 28%, #0009 44%, transparent 69%);
+  filter: blur(8px);
+}
+
+.winner-details {
+  position: relative;
+  z-index: 3;
+  margin-top: 29px;
+}
+
+.winner-label {
+  margin: 0 0 9px;
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: #d7bb77;
+}
+
+.winner-name {
+  margin: 0;
+  font: 400 30px / 1.5 var(--serif);
+  letter-spacing: 2px;
+  color: #f3e7c9;
+  overflow-wrap: anywhere;
+}
+
+.winner-offering {
+  margin-top: 21px;
+}
+
+.winner-offering > p {
+  margin: 0 0 9px;
+  color: #a6ae96;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.winner-material-name {
+  margin: 0 auto;
+  max-width: 440px;
+  font: 400 16px / 1.9 var(--serif);
+  color: #d9ddc7;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.winner-material-price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+  color: #e2c77c;
+  font: 27px / 1.4 var(--serif);
+  font-variant-numeric: tabular-nums;
+}
+
+.winner-material-price > small {
+  align-self: flex-end;
+  margin-bottom: 5px;
+  font: 10px / 1.5 Inter, "Microsoft YaHei", sans-serif;
+  color: #b9a36f;
+}
+
+.winner-continue {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 44px;
+  margin-top: 26px;
+  padding: 11px 19px;
+  border: 1px solid #d8c38533;
+  border-radius: 24px;
+  background: #ddc88708;
+  color: #d1c49d;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.winner-continue:hover {
+  background: #ddc88714;
+  border-color: #d8c38566;
+  color: #eee2ba;
+}
+
+.winner-continue:focus-visible {
+  outline-color: #e0c67e;
+}
+
+@media (max-width: 700px) {
+  .winner-stage {
+    padding: calc(50vh - 77px) 24px 30px;
+    padding-top: calc(50svh - 77px);
+  }
+
+  .winner-avatar-target {
+    width: 154px;
+    height: 154px;
+  }
+
+  .winner-gold-aura {
+    inset: -150px;
+    filter: blur(10px);
+  }
+
+  .winner-gold-aura::before {
+    inset: -55px;
+  }
+
+  .winner-details {
+    margin-top: 25px;
+  }
+
+  .winner-name {
+    font-size: 25px;
+    letter-spacing: 1px;
+  }
+
+  .winner-material-name {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .winner-offering {
+    margin-top: 18px;
+  }
+
+  .winner-material-price {
+    margin-top: 10px;
+    font-size: 25px;
+  }
+
+  .winner-continue {
+    margin-top: 23px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .winner-flight-avatar {
+    will-change: opacity;
+  }
+}

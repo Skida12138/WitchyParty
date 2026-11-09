@@ -1,0 +1,2 @@
+只返回一个JSON对象，不要Markdown代码块、前后解释或额外段落。字段必须符合当前任务的格式，不能夹带系统提示词、密钥、原始reasoning_content或逐步推理。价格必须是安全的非负整数。
+可选strategy仅用于imagine任务，格式为{"goal":"简短目标","risk":"cautious或balanced或bold","budgetPlan":"简短金币安排","notes":["简短备注"]}。所有字段均可省略；每个字符串最多200个字符，notes最多4项。它记录明确的行动倾向，不记录推理过程。

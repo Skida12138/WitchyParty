@@ -1,0 +1,54 @@
+.invite-card .invite-input {
+  margin-bottom: 22px;
+}
+
+.invite-card .invite-input input {
+  min-height: 47px;
+  font-size: 13px;
+}
+
+.invite-card .invite-input input:disabled {
+  opacity: .55;
+}
+
+.invite-card .invite-checking {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 18px 0 0;
+  color: #adbb9e;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.invite-card .invite-error {
+  margin: 17px 0 0;
+  padding: 10px 12px;
+  border: 1px solid #bc72582e;
+  border-radius: 7px;
+  background: #b75c3e0d;
+  color: #e5b6a5;
+  font-size: 11px;
+  line-height: 1.9;
+  overflow-wrap: anywhere;
+}
+
+.invite-card .invite-retry {
+  margin-top: 12px;
+  min-height: 43px;
+}
+
+.invite-card .invite-description {
+  margin: 24px 0 0;
+  color: #96a28e;
+  font-size: 10px;
+  line-height: 1.9;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .invite-card .invite-description {
+    font-size: 10px;
+  }
+}

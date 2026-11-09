@@ -1,0 +1,29 @@
+{
+  "startingCoins": 20000,
+  "allowedRounds": [
+    3,
+    5,
+    10
+  ],
+  "maxPlayers": 8,
+  "maxQuotes": 3,
+  "maxMaterialNameLength": 80,
+  "maxMaterialPrice": 1000000000,
+  "probabilityDivisor": 2,
+  "hashEncoding": "utf8",
+  "tierMinimums": {
+    "white": 0,
+    "green": 10,
+    "blue": 50,
+    "purple": 200,
+    "gold": 2000,
+    "red": 10000
+  },
+  "depositMs": 1800,
+  "reactionMs": 2400,
+  "holdMs": 1500,
+  "chainHoldMs": 1000,
+  "winnerAnimationMs": 1200,
+  "nonPositiveBalanceEliminatesMatch": true,
+  "equalContributionWinner": "server-random"
+}

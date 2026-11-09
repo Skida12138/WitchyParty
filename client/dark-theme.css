@@ -1,0 +1,228 @@
+/* Sunlit alchemy against charcoal: all surfaces stay dark. */
+:root {
+  color-scheme: dark;
+  color: #e8e6df;
+  background: #141617;
+  --bg: #141617;
+  --panel: #1c2020;
+  --panel-light: #252a29;
+  --border: #b9c6b626;
+  --muted: #a6afa9;
+  --dim: #768079;
+  --cream: #e8e6df;
+  --green: #c4dda7;
+  --gold: #dfc18a;
+  --purple: #c1addc;
+}
+body { background: var(--bg); }
+.app-shell { background: radial-gradient(ellipse at 44% 17%, #7a88540d, transparent 53%), #141617; }
+.site-header { background: #141617b8; border-color: var(--border); }
+.brand strong, .hero-copy h1, .entry-card h2, .room-intro h1, .rules-intro h3 { color: var(--cream); }
+.brand-mark, .hero-copy h1 > span, .room-intro h1 em { color: var(--green); }
+.brand-dot, .eyebrow, .entry-top svg { color: var(--gold); }
+.brand small, .header-center, .orbit-label, .art-caption, .tiny-label { color: #8e9a90; }
+.connection, .hero-description, .hero-tags, .entry-card > p, .room-intro > p, .room-meta,
+.how-step p, .site-footer, .entry-card p.entry-footnote, .entry-divider { color: var(--muted); }
+.hero-english { color: #b7b6a1; }
+.hero-tags svg, .how-step > div > svg, .how-step > div > span { color: #a9bb94; }
+.how-step h4, .seat strong, label { color: #d0d6ca; }
+.how-it-works, .how-step { border-color: var(--border); }
+.help-button { border-color: var(--border); color: var(--muted); }
+.icon-button:hover, .text-button:hover { color: var(--cream); background: #ffffff08; }
+.button.primary { background: #c4dda7; color: #26301f; border-color: #d6e8c12b; box-shadow: 0 3px 14px #0002; }
+.button.primary:hover:not(:disabled) { background: #d4e9bb; }
+.button.ghost { background: #ffffff03; border-color: var(--border); color: #bec8bd; }
+.button.ghost:hover:not(:disabled) { background: #ffffff08; border-color: #b9c6b655; }
+.entry-card { background: linear-gradient(135deg, #272c27ed, #1c2021f2); border-color: #c7d0b82e; box-shadow: 0 15px 65px #0003; }
+.floating-note { background: #222923d9; color: #d7ddce; border-color: #c7d0b82e; box-shadow: 0 7px 25px #0002; }
+.floating-note small { color: #939f90; }
+.floating-note .note-icon { color: #dfc18a; }
+.floating-note svg { color: #b5d39b; }
+.segmented { background: #1116129e; }
+.segmented button { color: #9ba797; }
+.segmented button.selected { background: #343e31; color: #e5eddd; box-shadow: 0 3px 8px #0002; }
+label > span, .input-wrap svg { color: #91a08e; }
+input, textarea { background: #10161280; border-color: #c2d1b62c; color: var(--cream); }
+input::placeholder, textarea::placeholder { color: #7e897f; }
+input:focus, textarea:focus { border-color: #bad09a99; }
+.round-selector > button { background: #141a1555; color: #aab5a4; border-color: var(--border); }
+.round-selector strong { color: #d2d8cd; }
+.round-selector small { color: #8b9787; }
+.round-selector .selected { background: #bed69d0e; border-color: #bed69d66; color: var(--green); }
+.round-selector .selected strong { color: var(--green); }
+.round-selector .selected small { color: #a5b994; }
+.invite-box { background: #ffffff03; border-color: var(--border); }
+.invite-box strong { color: var(--green); }
+.gathering-panel { background: linear-gradient(135deg, #262c27e8, #1a2020eb); border-color: var(--border); box-shadow: 0 15px 50px #0002; }
+.seat { background: #10151255; border-color: #bed1b51b; }
+.seat small, .seat > span.seat-badge, .empty-seat, .gathering-bottom > p { color: #94a08f; }
+.avatar { background: color-mix(in srgb, var(--avatar-color) 10%, #1b211e); border-color: color-mix(in srgb, var(--avatar-color) 29%, transparent); color: var(--avatar-color); }
+.bot-dot { background: #232a22; border-color: var(--border); color: var(--gold); }
+.pill { color: var(--green) !important; background: #c8dab709; border-color: #a8bd8b30; }
+.rules-modal { background: #202522; border-color: #c8d5be33; box-shadow: 0 25px 90px #0005; }
+.modal-overlay { background: #070c09b0; }
+.rule-list strong { color: #d5ddcf; }
+.rule-list p, .rules-lead { color: #b4bfb0; }
+.rules-tiers span, .rules-footnote { color: #94a28f; }
+.rule-list li:before { color: #bdd3a0; }
+.rules-tiers > div { background: #13191466; }
+.error-toast { background: #382621; border-color: #ceaa9870; color: #f0c6b5; box-shadow: 0 8px 35px #0005; }
+.connection-banner { background: #433b24; color: #e0c88f; }
+.danger-text { color: #eea09d !important; }
+
+/* Keep players present without competing with their ingredients. */
+.tea-game-top { border-color: var(--border); }
+.tea-round > span, .tea-room-code { color: #a4b19e; }
+.tea-round b { color: var(--cream); }
+.tea-round > small, .budget-private, .budget-total { color: #8a9984; }
+.private-budget { background: #20271e99; border-color: #bbcca22b; }
+.private-budget > div > small { color: #a0ae97; }
+.private-budget > div > strong { color: #d8e9c8; }
+.private-budget > div:nth-of-type(2) > strong { color: #d4c9aa; }
+.gathering-players { gap: 25px; padding: 17px 8px 16px; min-height: 102px; scrollbar-color: #56614c transparent; }
+.gathering-player { min-width: 64px; max-width: 90px; opacity: .5; transform: scale(.88); }
+.circle-avatar, .circle-avatar .avatar { width: 42px; height: 42px; }
+.circle-avatar { margin-bottom: 7px; }
+.circle-avatar .avatar > svg { width: 27px; height: 27px; }
+.circle-avatar .bot-dot { height: 12px; width: 12px; font-size: 8px; }
+.gathering-player > strong { font-size: 9px; color: #adb6a8; }
+.gathering-player > strong > em { font-size: 7px; color: #b7ce9c; margin-left: 3px; }
+.gathering-player > small { font-size: 7px; color: #8c9887; margin-top: 4px; }
+.gathering-player.is-current { transform: scale(1); }
+.gathering-player.is-current .circle-avatar .avatar { box-shadow: 0 0 0 3px #b8cfa91a, 0 0 18px #bddb9214; }
+.gathering-player.is-current > strong, .gathering-player.is-deciding > strong { color: #e0e8d7; }
+.gathering-player.is-current > small, .gathering-player.is-deciding > small { color: #b4c99a; }
+.gathering-player.has-withdrawn { opacity: .34; }
+.turn-star { font-size: 12px; color: #dfc18a; }
+.tea-gallery { background: #1c24206b; border-color: #c3d1b626; box-shadow: 0 5px 40px #0001; }
+.ambient-cauldron { opacity: .25; filter: blur(5px); }
+.tea-gallery-title .tiny-label { color: #899880; }
+.tea-gallery-title h1 { color: #e0e6d7; }
+.tea-gallery-title p { color: #9fab98; }
+.tea-gallery .materials-heading h3, .tea-gallery .materials-heading svg { color: #b8c4af; }
+.tea-gallery .materials-heading > div > span { color: #a6b59c; border-color: var(--border); }
+.tea-gallery .materials-heading > small { color: #8c9b81; }
+.tea-gallery .material { background: linear-gradient(160deg, #282d2aeb, color-mix(in srgb, var(--tier) 7%, #1b2121)); box-shadow: 0 5px 15px #0002; }
+.tea-gallery .material-index, .tea-gallery .tier-label { color: var(--tier); }
+.tea-gallery .material-icon { background: radial-gradient(color-mix(in srgb, var(--tier) 13%, #262b25), transparent); }
+.tea-gallery .material-copy strong { color: #dddeda; }
+.tea-gallery .material-copy small { color: #98a194; }
+.tea-gallery .material-legend { border-color: var(--border); }
+.tea-gallery .material-legend > span { color: #96a18d; }
+.tea-gallery .empty-pot { background: #10161025; border-color: #b8caaa2e; }
+.tea-gallery .empty-pot > svg, .tea-gallery .empty-pot p { color: #c1ceb5; }
+.tea-gallery .empty-pot small { color: #8d9c82; }
+.tea-game-footer, .tea-game-footer > span, .tea-game-footer > .text-button { color: #98a48e; }
+.tea-decision { background: #222923f5; border-color: #c5d2b838; }
+.tea-decision-heading h2 { color: #e3e8db; }
+.tea-choice { background: #151d18; color: #b8c3b0; border-color: #c0cfb532; }
+.tea-choice > span > small { color: #91a087; }
+.tea-choice.selected { background: #34412b; border-color: #b5ce9180; color: #d0e4b7; }
+.tea-choice.selected > span > small { color: #b2c79b; }
+.tea-choice.leave-choice { background: #3b3425; border-color: #cdb58c70; color: #e6ca92; }
+.tea-choice.leave-choice > span > small { color: #c2ac85; }
+.tea-decision .forced-note { background: #3b2922; color: #e2baa3; border-color: #d4b49c4a; }
+.decision-footnote, .decision-spectator { color: #9aab91; }
+
+/* Private inspiration cards and the local stirring veil. */
+.turn-overlay { background: linear-gradient(125deg, #111914e8, #191a22e8); backdrop-filter: blur(17px) saturate(.65); }
+.turn-overlay h1, .imagination-dialog h2 { color: #e8e7df; }
+.turn-eyebrow { color: #b6c8a4; }
+.turn-subtitle, .turn-private-budget, .choose-hint, .chosen-account, .material-input-tip, .chosen-confirmation > .budget-guidance { color: #abb7a2; }
+.turn-private-budget b, .chosen-account b { color: #dce6d1; }
+.quality-card { background: linear-gradient(145deg, #2b2d2ced, color-mix(in srgb, var(--tier) 10%, #1c2122)); box-shadow: 0 7px 25px #0002; }
+.quality-card.selected { background: linear-gradient(140deg, #303531, color-mix(in srgb, var(--tier) 19%, #1a2120)); border-color: var(--tier); }
+.quality-card > strong { color: #eee9df; }
+.quality-name { color: var(--tier); }
+.quality-price { color: #e6c890; }
+.quality-check { color: #172014; }
+.imagination-placeholder { background: #c5dcab03; border-color: #bdcaaa5c; }
+.imagination-placeholder:hover:not(:disabled) { background: #c5dcab09; border-color: #bdcaaa99; }
+.placeholder-plus { background: #c5dcab05; border-color: #c6dab520; color: #b7c7a3; }
+.imagination-placeholder > strong { color: #b8c8a8; }
+.imagination-placeholder > small, .imagination-count, .choose-hint > span, .chosen-confirmation > small { color: #99a68e; }
+.imagination-count > span { color: #7f8c77; }
+.chosen-confirmation > p { color: #c6d2ba; }
+.chosen-confirmation > p > strong { color: #e1e8d8; }
+.chosen-confirmation > .over-budget-warning { color: #e2ab92; }
+.imagination-dialog-backdrop { background: #080d09b3; }
+.imagination-dialog { background: linear-gradient(145deg, #2b312a, #202326); border-color: #c9d6bb40; box-shadow: 0 20px 100px #0006; }
+.dialog-close, .dialog-star { color: #b4c9a0; }
+.imagination-dialog > p, .imagination-dialog label { color: #acbba2; }
+.imagination-dialog input { background: #141c17; color: #e2e9d9; border-color: #c5d8b33d; }
+.imagination-dialog input::placeholder { color: #81917a; }
+.imagination-dialog > small, .summoning-inspection p, .restore-pricing { color: #9aab90; }
+.material-rejection { color: #e9b69c; }
+.summoning-spinner { color: #bfd7a1; }
+.summoning-spinner > svg:last-child { color: #94af7c; }
+.stirring-overlay { background: linear-gradient(120deg, #1a231cea, #202329e8); }
+.stirring-overlay h2 { color: #e1e8d6; }
+.stirring-overlay p { color: #abbc9b; }
+.stirring-dots > i { background: #bccfa4; }
+
+/* Reveal, score and journal share the same dark table. */
+.ceremony-page { --results-ink: #e4e8df; --results-muted: #a1af97; --results-line: #b6c5ac2c; --results-paper: #1c231f; --results-sage: #bfd7a1; --results-amber: #e3c17c; }
+.results-kicker { color: #9cae90; }
+.ceremony-board { background: radial-gradient(ellipse at 50% 70%, #859f4010, transparent 60%), linear-gradient(135deg, #272d25d9, #1c2223e6); box-shadow: 0 12px 50px #0002; }
+.ceremony-avatar { background: color-mix(in srgb, var(--witch-color) 12%, #21291f); color: var(--witch-color); border-color: color-mix(in srgb, var(--witch-color) 35%, #293024); }
+.ceremony-avatar-crown { filter: drop-shadow(0 1px 2px #000); color: #e3bf6c; }
+.ceremony-person > strong > small, .ceremony-wallet-wait { color: #95a58b; }
+.ceremony-cost, .ceremony-winnings { text-shadow: 0 1px 4px #0008; }
+.ceremony-cost { color: #eea3a0; }
+.ceremony-winnings { color: #e4c47f; }
+.ceremony-card-back { background: repeating-linear-gradient(45deg, #bdcda20b 0 1px, transparent 1px 9px), linear-gradient(145deg, #32382e, #252a26); border-color: #b6c29e50; }
+.ceremony-card-back > span { color: #bdd1a3; }
+.ceremony-card-back > small, .ceremony-card-back > i { color: #9eaf8f; }
+.ceremony-card-front { background: linear-gradient(145deg, #2d322b, color-mix(in srgb, var(--card-tier) 10%, #1b221e)); border-color: color-mix(in srgb, var(--card-tier) 70%, #394532); }
+.ceremony-total > span, .ceremony-total > small { color: #c5b78f; }
+.ceremony-winner-reason p { color: #afbd9f; }
+.ceremony-settled { color: #b6cf9b; }
+.ceremony-finished-message p > strong { color: #e0c182; }
+.results-tabs > button { color: #a7b39d; }
+.results-tabs > button[aria-selected=true] { background: #35422f; border-color: #bdcba739; color: #e0ebd4; }
+.results-tabs > button:hover { background: #2b3627; }
+.results-panel-heading > span, .results-rank-number, .results-rank-person strong > small,
+.results-rank-person > span, .results-rank-points > small, .results-ranking-note { color: #9dac93; }
+.results-rank-points > strong { color: #cdddbb; }
+.results-rank-first .results-rank-points > strong, .results-rank-first .results-rank-number { color: #e0c17d; }
+.results-score-chart text { fill: #a4b098; }
+.results-chart-legend > span, .results-score-data, .results-table-scroll table { color: #b6c4ab; }
+.results-table-scroll thead th, .results-table-scroll caption { color: #96a58d; }
+.results-round-selector > button { color: #aabb9e; }
+.results-round-selector > button.selected { background: #35412d; border-color: #a5bc7e70; color: #d7e4c5; }
+.results-history-summary { background: #b9cf9808; border-color: #b8c9a930; }
+.results-history-summary > span { color: #bacda3; }
+.results-history-summary > strong { color: #ddc285; }
+.results-history-marker { background: #2c3527; color: #b6c6a5; border-color: #c8d3b32b; }
+.results-event-reaction .results-history-marker { color: #d4bf82; background: #443e2666; }
+.results-event-label { color: #91a183; }
+.results-history-event p { color: #becbb2; }
+.results-recipe-symbol { color: #839976; }
+.results-material-name > button:hover { filter: brightness(1.2); }
+.results-material-tooltip { background: #2b3426; border-color: color-mix(in srgb, var(--material-color) 40%, #34412a); box-shadow: 0 5px 20px #0005; }
+.results-material-tooltip > span, .results-history-pot h3, .results-history-accounts h3, .results-empty, .results-next-action > span { color: #a0b28f; }
+.ceremony-page button:focus-visible, .ceremony-page summary:focus-visible { outline-color: #b8d397; }
+.ceremony-person { width: 80px; }
+.ceremony-person > span:first-child { width: 42px; margin-bottom: 7px; }
+.ceremony-coven .ceremony-avatar { width: 40px; height: 40px; }
+.ceremony-coven .ceremony-avatar svg { width: 28px; height: 28px; }
+.ceremony-person > strong { font-size: 9px; }
+
+.cauldron-sunbeams { animation: sunlight-breathe 12s ease-in-out infinite alternate; }
+.cauldron-meadow { transform-origin: 270px 355px; }
+@keyframes sunlight-breathe { from { opacity: .7; } to { opacity: 1; } }
+@media (max-width: 700px) {
+  .hero-copy h1 { color: var(--cream); }
+  .hero-art { opacity: .9; }
+  .entry-card { background: linear-gradient(140deg, #262d26f5, #1b2022f2); }
+  .gathering-players { gap: 14px; padding: 15px 4px 12px; min-height: 94px; }
+  .gathering-player { min-width: 60px; max-width: 76px; }
+  .circle-avatar, .circle-avatar .avatar { width: 36px; height: 36px; }
+  .circle-avatar .avatar > svg { width: 24px; height: 24px; }
+  .gathering-player > strong { font-size: 9px; }
+  .gathering-player > small { font-size: 7px; }
+  .ceremony-coven .ceremony-avatar { width: 34px; height: 34px; }
+  .ceremony-coven .ceremony-avatar svg { width: 24px; height: 24px; }
+  .ceremony-person { width: calc(25% - 8px); }
+}
+@media (prefers-reduced-motion: reduce) { .cauldron-sunbeams { animation: none; } }

@@ -1,0 +1,60 @@
+/* Everyone prepares privately; the table waits for the whole gathering. */
+.preparation-status{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 19px;margin:0 0 20px;border:1px solid var(--border);border-radius:10px;background:linear-gradient(120deg,color-mix(in srgb,var(--green) 5%,var(--panel)),var(--panel));box-shadow:0 3px 15px #0000000a}
+.preparation-status-copy{display:flex;align-items:center;gap:12px;min-width:0}
+.preparation-symbol{display:grid;place-items:center;width:35px;height:35px;border-radius:50%;border:1px solid color-mix(in srgb,var(--green) 22%,transparent);background:color-mix(in srgb,var(--green) 6%,transparent);color:var(--green);flex-shrink:0}
+.preparation-status-copy strong{font-size:12px;font-weight:500;color:var(--cream);line-height:1.7}
+.preparation-status-copy p{font-size:10px;color:var(--muted);line-height:1.8;margin:4px 0 0}
+.preparation-status-actions{display:flex;align-items:center;gap:15px;flex-shrink:0}
+.preparation-count{font-size:11px;color:var(--green);white-space:nowrap;font-variant-numeric:tabular-nums}
+.preparation-status-actions>.button{min-height:36px;padding:9px 12px;font-size:10px;gap:7px}
+.gathering-player.is-preparing{opacity:.8;filter:none;transform:scale(.94)}
+.gathering-player.is-ready{opacity:1;transform:scale(1)}
+.gathering-player.is-ready>small{color:var(--green)}
+.avatar-ready-check{position:absolute;right:-4px;top:-3px;display:grid;place-items:center;height:18px;width:18px;background:var(--green);color:#26331f;border:2px solid var(--bg);border-radius:50%;box-shadow:0 0 10px color-mix(in srgb,var(--green) 10%,transparent)}
+.preparing-presence{display:flex;justify-content:center;align-items:center;gap:6px;color:var(--muted);font-size:10px;line-height:1.7;margin:12px 0 0}
+.preparing-presence>strong{font-weight:500;color:var(--green);font-variant-numeric:tabular-nums}
+.imagination-area{position:relative;isolation:isolate}
+.imagination-area>.imagination-cards{transition:filter .3s ease,opacity .3s ease}
+.imagination-area>.imagination-cards-waiting{filter:blur(5px);opacity:.42;pointer-events:none;user-select:none}
+.preparation-waiting-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:12px;pointer-events:none;color:#e4ecda;text-shadow:0 2px 14px #0d140dd9;z-index:1}
+.preparation-waiting-overlay>strong{font:21px/1.6 var(--serif);font-weight:400;letter-spacing:1px}
+.preparation-waiting-overlay>svg{color:#c1d5ac;flex-shrink:0;filter:drop-shadow(0 0 9px #c2dba32b)}
+.preparation-wait-actions{min-height:135px;padding-top:4px;text-align:center;color:#b8c7aa}
+.preparation-wait-actions>p{font:14px/1.8 var(--serif);margin:0 0 17px}
+.preparation-wait-actions>p>strong{font-weight:400;color:#e0e8d4}
+.preparation-wait-actions>.button{min-width:160px;min-height:39px;margin:0 auto;font-size:11px;justify-content:center;gap:8px}
+.preparation-wait-actions>small{display:block;font-size:9px;line-height:1.8;color:#96a58c;margin-top:13px}
+.preparation-wait-recovery{max-width:560px;margin:0 auto;padding:14px 18px;border:1px solid #cb9d7940;border-radius:9px;background:#ab71430b}
+.preparation-wait-recovery>strong{font-size:12px;font-weight:500;color:#dec6ab}
+.preparation-wait-recovery>p{font-size:10px;line-height:1.8;color:#bda98f;overflow-wrap:anywhere;margin:8px 0 12px}
+.preparation-wait-recovery>.button{min-height:36px;padding:8px 15px;gap:7px;font-size:10px;margin:0 auto;color:#d1b591;border-color:#cb9d7940}
+.preparation-wait-recovery>small{font-size:10px;line-height:1.8;color:#bca58d}
+.processing-status{display:flex;justify-content:center;align-items:center;gap:9px;min-height:43px;margin:0 0 15px;color:var(--muted);font-size:11px;line-height:1.8}
+.processing-status>svg{color:var(--green);flex-shrink:0}
+.processing-recovery{display:flex;align-items:center;justify-content:space-between;gap:20px;margin:0 0 20px;padding:15px 18px;border:1px solid #cb9d7950;border-radius:9px;background:#ab71430b}
+.processing-recovery strong{font-size:12px;font-weight:500;color:#dec6ab}
+.processing-recovery p{font-size:10px;color:#bda98f;line-height:1.8;overflow-wrap:anywhere;margin:7px 0 0;max-width:760px}
+.processing-recovery>.button{flex-shrink:0;font-size:10px;min-height:37px;padding:9px 13px;color:#d1b591;border-color:#cb9d7940}
+.processing-recovery>small{font-size:10px;line-height:1.8;color:#bca58d;flex-shrink:0}
+
+/* The placeholder uses only the already-public tier. Light arrives before its face. */
+.tea-gallery .material.material-slot-reserved{background:color-mix(in srgb,var(--tier) 3%,transparent);border:1px dashed color-mix(in srgb,var(--tier) 35%,transparent);box-shadow:none;animation:none;isolation:isolate}
+.tea-gallery .material.material-slot-reserved:before{background:none;border-color:color-mix(in srgb,var(--tier) 12%,transparent)}
+.reserved-slot-light{width:34px;height:34px;display:block;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--tier) 16%,transparent),transparent 70%);box-shadow:0 0 25px color-mix(in srgb,var(--tier) 8%,transparent);animation:reserved-slot-wait .7s ease-in-out infinite alternate}
+.tea-game{position:relative}.material-flight{position:absolute;inset:0;overflow:hidden;z-index:5;pointer-events:none;contain:paint;opacity:0}.material-flight[data-ready="true"]{opacity:1}
+.material-flight-particle{position:absolute;display:block;width:var(--spark-size,4px);height:var(--spark-size,4px);left:var(--flight-start-x);top:var(--flight-start-y);margin:0;border-radius:50%;background:#e2edbe;box-shadow:0 0 8px #d6e7a8bb,0 0 17px #b7c98350;animation-name:material-slot-flight;animation-timing-function:cubic-bezier(.22,.55,.36,1);animation-fill-mode:both;will-change:transform,opacity}
+.material-flight-particle:nth-child(3n){background:#ead4a4;box-shadow:0 0 7px #e2bf82a6,0 0 14px #d2a76b40}
+.tea-gallery .material.material-enter .material-copy,.tea-gallery .material.material-enter .material-icon,.tea-gallery .material.material-enter .tier-label{animation:material-face-arrive .7s ease-out both}
+
+
+
+
+
+
+@keyframes reserved-slot-wait{from{opacity:.35;transform:scale(.85)}to{opacity:.8;transform:scale(1.15)}}
+@keyframes material-slot-flight{0%{opacity:0;transform:translate(-50%,-50%) translate(0,0) scale(.35)}15%{opacity:1}48%{opacity:1;transform:translate(-50%,-50%) translate(calc(var(--flight-bend-x) + var(--flight-spread-x)),calc(var(--flight-bend-y) + var(--flight-spread-y))) scale(1)}92%{opacity:1}100%{opacity:0;transform:translate(-50%,-50%) translate(var(--flight-x),var(--flight-y)) scale(.6)}}
+@keyframes material-face-arrive{0%{opacity:0;filter:blur(5px)}30%{opacity:.25}100%{opacity:1;filter:blur(0)}}
+@media(max-width:700px){.preparation-status{padding:14px 13px;gap:13px;align-items:flex-start;flex-wrap:wrap;margin-bottom:16px;border-radius:8px}.preparation-status-copy{gap:9px}.preparation-symbol{width:30px;height:30px}.preparation-symbol>svg{width:16px}.preparation-status-copy strong{font-size:11px}.preparation-status-copy p{font-size:9px;line-height:1.8;margin-top:4px}.preparation-status-actions{width:100%;padding-left:39px;justify-content:space-between;gap:12px}.preparation-count{font-size:10px}.preparation-status-actions>.button{font-size:9px;min-height:33px;padding:7px 10px}.preparing-presence{font-size:9px;margin-top:10px}.avatar-ready-check{width:16px;height:16px;right:-3px;top:-3px}.avatar-ready-check>svg{width:10px;height:10px}.processing-status{font-size:10px;line-height:1.8;margin:0 0 13px;padding:0 7px;min-height:38px}.processing-recovery{padding:13px;gap:13px;align-items:flex-start;flex-wrap:wrap;margin-bottom:16px}.processing-recovery strong{font-size:11px}.processing-recovery p{font-size:9px;line-height:1.8;margin-top:6px}.processing-recovery>.button{font-size:9px;min-height:33px;margin-left:auto;padding:7px 10px}.processing-recovery>small{font-size:9px}.reserved-slot-light{width:27px;height:27px}}
+@media(prefers-reduced-motion:reduce){.material-flight{display:none}.reserved-slot-light{animation:none}.tea-gallery .material.material-enter .material-copy,.tea-gallery .material.material-enter .material-icon,.tea-gallery .material.material-enter .tier-label{animation:none}.gathering-player.is-ready,.gathering-player.is-preparing{transition:none}}
+@media(max-width:700px){.preparation-waiting-overlay{gap:9px}.preparation-waiting-overlay>strong{font-size:18px;letter-spacing:.5px}.preparation-waiting-overlay>svg{width:19px;height:19px}.preparation-wait-actions>p{font-size:12px;margin-bottom:14px}.preparation-wait-actions>.button{font-size:10px;min-height:37px;min-width:145px}.preparation-wait-actions>small{font-size:8px}.preparation-wait-recovery{padding:12px 14px}.preparation-wait-recovery>strong{font-size:11px}.preparation-wait-recovery>p{font-size:9px}.preparation-wait-recovery>.button{font-size:9px}.preparation-wait-recovery>small{font-size:9px}}
+@media(prefers-reduced-motion:reduce){.imagination-area>.imagination-cards{transition:none}.preparation-waiting-overlay>.spin{animation:none}}

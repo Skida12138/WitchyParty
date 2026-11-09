@@ -1,0 +1,20 @@
+.mana-icon{display:inline-block;flex-shrink:0;vertical-align:middle;filter:drop-shadow(0 0 4px #c4c8ed22)}
+.ceremony-balance>.mana-icon,.ceremony-card-price>.mana-icon,.results-material-tooltip>.mana-icon{color:#bfcbda}
+.ceremony-total>strong>.mana-icon{filter:drop-shadow(0 0 9px #c1b5e759)}
+.ceremony-flight.ceremony-mana-flight>i{background:#c8e3c1;border:0;border-radius:25% 60% 30% 60%;box-shadow:0 0 7px #d4e7d2,0 0 16px #a791d969}
+.ceremony-flight.ceremony-mana-flight>i:nth-child(3n){background:#d3c2ef;box-shadow:0 0 8px #dac9f6,0 0 18px #b9a0e561;border-radius:3px}
+.ceremony-flight.ceremony-mana-flight>i:nth-child(4n){background:linear-gradient(135deg,#e6f2dc,#b8cfce 45%,#b29ccb);border:0;border-radius:2px;box-shadow:0 0 10px #d1c3e47a}
+.ceremony-total .ceremony-potion{display:block;width:48px;height:61px;margin:-62px auto 5px;overflow:visible;color:#c3b2df;transform-origin:50% 76%;filter:drop-shadow(0 0 12px #aa95da45);transition:opacity .6s}
+.ceremony-total .ceremony-potion-drinking{animation:potion-sip 1.1s ease-in-out both}
+.ceremony-total .ceremony-potion-absorbed{opacity:.35}
+.ceremony-person-absorbing .ceremony-avatar{animation:mana-absorb 1.4s ease-out both}
+.ceremony-winnings{color:#c6dabc!important;text-shadow:0 0 8px #b9a0e566!important}
+.ceremony-person .ceremony-person-wallet{height:43px;align-items:flex-start;padding-top:5px}
+.ceremony-person-wallet>.ceremony-winnings{top:26px;left:50%;transform:translateX(-50%);font-size:9px;line-height:1.5;animation:mana-gain-in .25s ease-out both}
+.ceremony-drinking-note{display:flex;align-items:center;justify-content:center;gap:6px;font-size:10px;color:#c7b8dc;margin:13px 0 0}
+.chosen-account .mana-icon{width:14px;height:14px;margin-left:3px}
+@keyframes potion-sip{0%,100%{transform:rotate(0)}42%,70%{transform:translateY(-6px) rotate(-28deg)}}
+@keyframes mana-absorb{0%{box-shadow:0 0 0 4px #b7a1d522,0 0 20px #c9d9b940}50%{box-shadow:0 0 0 10px #c6dfb522,0 0 44px #bba0e785}100%{box-shadow:0 0 0 5px #c7dbb429,0 0 28px #bdacd050}}
+@keyframes mana-gain-in{from{opacity:0}to{opacity:1}}
+@media(max-width:700px){.ceremony-total .ceremony-potion{width:39px;height:50px;margin-top:-51px}.ceremony-drinking-note{font-size:9px}.private-budget .mana-icon{width:17px;height:17px}.quality-price .mana-icon{width:21px;height:21px}.cards-count-2 .quality-price .mana-icon,.cards-count-3 .quality-price .mana-icon{width:17px;height:17px}}
+@media(prefers-reduced-motion:reduce){.ceremony-total .ceremony-potion-drinking,.ceremony-person-absorbing .ceremony-avatar{animation:none}.ceremony-flight.ceremony-mana-flight{display:none}}

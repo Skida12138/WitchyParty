@@ -1,0 +1,13 @@
+@property --ruby-radiance-angle{syntax:'<angle>';inherits:false;initial-value:0deg}
+
+/* Blur the finished ring on its parent, so light fades beyond the mask edge. */
+.ruby-aura{position:absolute;inset:-5px;display:block;pointer-events:none;z-index:-1;filter:blur(2.5px);opacity:.85;overflow:visible}
+.ruby-aura::before{content:'';position:absolute;inset:0;padding:5px;border-radius:15px;background:repeating-conic-gradient(from var(--ruby-radiance-angle),#f4aeb1a3 0deg 2deg,transparent 4deg 12deg,#ee777bb8 14deg 17deg,transparent 20deg 30deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude;animation:ruby-radiance-turn 12s linear infinite}
+.tea-gallery .material.tier-red:not(.material-slot-reserved){box-shadow:0 0 9px #d9787d26,0 0 17px #ed6a6f0f}
+.quality-card.tier-red:hover:not(:disabled){box-shadow:0 4px 18px #dc8a8f26}
+.quality-card.tier-red.selected{box-shadow:0 0 0 3px #dc8a8f1a,0 5px 18px #dc8a8f2b}
+.presentation-card.tier-red.presentation-product{box-shadow:0 0 14px #dc8a8f26,0 7px 20px #080c0925}
+.tea-gallery .materials-panel .material-list{position:relative;padding:18px 10px 24px}
+@keyframes ruby-radiance-turn{to{--ruby-radiance-angle:360deg}}
+@media(max-width:700px){.tea-gallery .materials-panel .material-list{padding:17px 9px 22px}.ruby-aura{inset:-4px;filter:blur(2px);opacity:.8}.ruby-aura::before{padding:4px;border-radius:13px}}
+@media(prefers-reduced-motion:reduce){.ruby-aura::before{animation:none;--ruby-radiance-angle:32deg}}
