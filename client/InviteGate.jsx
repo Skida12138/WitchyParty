@@ -18,7 +18,7 @@ function InvitationForm({ busy, onSubmit }) {
   };
   return <form className="invite-form" onSubmit={submit}>
     <label htmlFor="invite-code">邀请码</label>
-    <div className="input-wrap invite-input"><KeyRound size={17}/><input id="invite-code" name="invitation" type="password" value={code} onChange={event => setCode(event.target.value)} placeholder="粘贴你的专属邀请码" autoComplete="off" autoCapitalize="none" spellCheck={false} maxLength={80} disabled={busy} required aria-describedby="invite-description"/></div>
+    <div className="input-wrap invite-input"><KeyRound size={17}/><input id="invite-code" name="invitation" value={code} onChange={event => setCode(event.target.value)} placeholder="粘贴你的专属邀请码" autoComplete="off" autoCapitalize="none" spellCheck={false} maxLength={80} disabled={busy} required aria-describedby="invite-description"/></div>
     <button type="submit" className="button primary full invite-submit" disabled={busy || !code.trim()}>{busy ? <LoaderCircle className="spin" size={17}/> : <LockKeyhole size={16}/>}进入聚会<ArrowRight size={17}/></button>
   </form>;
 }
