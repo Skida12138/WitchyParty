@@ -21,9 +21,14 @@ export async function fixture(t, { env = {}, responses, prices, pauseIntervals =
   await new Promise(resolve => probe.listen(0, '127.0.0.1', resolve));
   const port = probe.address().port;
   await new Promise(resolve => probe.close(resolve));
-  const child = spawn(process.execPath, [...(pauseIntervals ? ['--import', './tests/helpers/paused-intervals.js'] : []), 'server/index.js'], {
+  const chainFixture = env.NODE_OPTIONS?.includes('chain-reaction-random.js');
+  const rustFixture = process.env.WITCHY_SERVER_BIN && (chainFixture || pauseIntervals);
+  const rustServer = rustFixture ? process.env.WITCHY_FIXTURE_BIN : process.env.WITCHY_SERVER_BIN;
+  if (rustFixture && !rustServer) throw new Error('This deterministic Rust test requires WITCHY_FIXTURE_BIN (run npm run test:rust)');
+  const child = spawn(rustServer || process.execPath, rustServer ? [] : [...(pauseIntervals ? ['--import', './tests/helpers/paused-intervals.js'] : []), 'server/index.js'], {
     cwd: new URL('../..', import.meta.url), windowsHide: true, stdio: ['ignore', 'pipe', 'pipe', 'ipc'],
     env: { ...process.env, HOST: '127.0.0.1', PORT: String(port), DEEPSEEK_API_KEY: apiKey, DEEPSEEK_BASE_URL: api.url,
+      ...(rustFixture ? { WITCHY_TEST_CHAIN: chainFixture ? '1' : '0', WITCHY_TEST_PAUSE_MAINTENANCE: pauseIntervals ? '1' : '0' } : {}),
       ROOM_LOG_ENABLED: '0', INVITE_CODE_SHA256: inviteHash, DEPOSIT_MS: '20', REACTION_MS: '25', HOLD_MS: '20',
       RECONNECT_GRACE_MS: '700', HEARTBEAT_INTERVAL_MS: '1000', HEARTBEAT_TIMEOUT_MS: '1000', ...env },
   });

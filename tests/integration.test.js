@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { setTimeout as delay } from 'node:timers/promises';
-import { fixture, humans, prepare } from './helpers/live-server.js';
+import { fixture, humans, prepare, until } from './helpers/live-server.js';
 
 test('rooms validate authority, names, round counts and private resume tokens', async t => {
   const server = await fixture(t), outsider = await server.connect();
@@ -224,4 +224,37 @@ test('refresh during the reading hold resumes the same frame without replay, dup
   assert.equal(ended.roundResult.potValue, 10);
   assert.equal(ended.me.coins, 19995 + (ended.roundResult.winnerId === saved.playerId ? 10 : 0));
   assert.deepEqual(new Set(guest.messages.filter(message => message.state?.phase === 'performing').map(message => message.state.presentation.id)).size, 2);
+});
+
+
+test('back-to-back create and leave retain wire order and invalidate the created seat', async t => {
+  const server = await fixture(t), client = await server.connect();
+  client.ws.send(JSON.stringify({ type: 'create', requestId: 'burst-create', inviteHash: server.inviteHash, payload: { name: '顺序玩家', rounds: 3 } }));
+  client.ws.send(JSON.stringify({ type: 'leave', requestId: 'burst-leave', inviteHash: server.inviteHash }));
+  await until(() => ['burst-create', 'burst-leave'].every(id => client.messages.some(message => message.type === 'ack' && message.requestId === id)));
+  const saved = client.saved();
+  const returning = await server.connect();
+  const rejected = await returning.send('resume', saved, true);
+  assert.ok(['SESSION_EXPIRED', 'ROOM_CLOSED', 'PLAYER_REMOVED'].includes(rejected.code));
+  await client.send('create', { name: '重新建房', rounds: 3 });
+  assert.notEqual(client.session.playerId, saved.playerId);
+});
+
+test('concurrent same-name quotes share one model request and remain private', async t => {
+  const server = await fixture(t), [host, guest] = await humans(server);
+  await host.action('start');
+  const name = '两位女巫同时构想的银色风铃';
+  const gate = server.api.holdMaterial(name);
+  const first = host.action('quote', { name });
+  await gate.entered;
+  const second = guest.action('quote', { name });
+  await guest.stateWhere(state => state.me.quoteBusy);
+  assert.equal(server.api.requests.filter(request => request.data.material === name).length, 1);
+  assert.deepEqual(host.state.contributions, []);
+  assert.ok(host.state.players.every(player => !('quotes' in player)));
+  gate.release();
+  await Promise.all([first, second]);
+  assert.equal(host.state.me.quotes[0].price, guest.state.me.quotes[0].price);
+  assert.equal(host.state.me.coins, 20000);
+  assert.equal(guest.state.me.coins, 20000);
 });

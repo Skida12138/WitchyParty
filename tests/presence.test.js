@@ -130,3 +130,26 @@ for (const operation of ['imagine', 'price']) {
     await host.action('nextRound'); assert.equal(host.state.players.length, 2);
   });
 }
+
+
+test('expired resume still starts resolution when removing the final unprepared seat', async t => {
+  const server = await fixture(t, { pauseIntervals: true, env: { RECONNECT_GRACE_MS: '150' } });
+  const [host, guest, absent] = await humans(server, 3);
+  await host.action('start');
+  const first = await prepare(host, '晨露'), second = await prepare(guest, '干枯鼠尾草');
+  const saved = absent.saved();
+  await absent.disconnect();
+  await guest.stateWhere(state => playerIn(state, saved.playerId)?.connected === false);
+  await delay(220);
+
+  const returning = await server.connect();
+  assert.equal((await returning.send('resume', saved, true)).code, 'PLAYER_REMOVED');
+  // Sweeps are paused: only the failed resume can start this computation.
+  const performing = await host.stateWhere(state => state.phase === 'performing');
+  assert.equal(playerIn(performing, host.session.playerId).coins, 20000 - first.price);
+  assert.equal(playerIn(performing, guest.session.playerId).coins, 20000 - second.price);
+  const syntheses = server.api.count('synthesize');
+  assert.equal((await returning.send('resume', saved, true)).code, 'SESSION_EXPIRED');
+  assert.equal(server.api.count('synthesize'), syntheses);
+  assert.equal(host.state.me.coins, 20000 - first.price);
+});

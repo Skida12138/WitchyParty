@@ -8,3 +8,5 @@ logs/
 *.log
 playwright-report/
 test-results/
+
+/target/

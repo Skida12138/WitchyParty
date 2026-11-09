@@ -36,7 +36,7 @@ export async function createDeepSeekStub({ responses = {}, prices = {} } = {}) {
       request.response = response;
       request.completedAt = Date.now();
       res.setHeader('Content-Type', 'application/json');
-      res.end(JSON.stringify({ choices: [{ message: { content: JSON.stringify(response), reasoning_content: operation === 'imagine' ? 'Test-only private reasoning.' : undefined } }] }));
+      res.end(JSON.stringify({ id: 'test-completion', object: 'chat.completion', created: Math.floor(Date.now() / 1000), model: body.model, choices: [{ index: 0, finish_reason: 'stop', message: { role: 'assistant', content: JSON.stringify(response), reasoning_content: operation === 'imagine' ? 'Test-only private reasoning.' : undefined } }] }));
     } catch { if (!res.headersSent) res.writeHead(400); res.end('{"error":"invalid test request"}'); }
   });
   await new Promise((resolve, reject) => api.listen(0, '127.0.0.1', resolve).once('error', reject));

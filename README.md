@@ -2,6 +2,10 @@
 
 女巫们在下午茶集会上玩的一场炼金游戏。支持本地或单实例服务器运行、2–8 位真人与 AI 混合参与、3 / 5 / 10 次出牌、自由构想材料，以及投料和连锁合成演出。金币、随机判定与结算由服务端控制，进入游戏前需要访问邀请码。
 
+## Rust 后端
+
+另提供独立 Rust 实现，代码集中在 `web-server` 一个 crate 中，游戏规则由内部 `gameplay` 模块管理。沿用现有前端协议，通过 `alaya-agent-rs` 调用模型。运行 `npm run dev:rust` 启动 Rust + Vite，或先构建前端再运行 `cargo run -p witchy-web-server`。运行方式、模块划分与验证见 [web-server/README.md](web-server/README.md)。原 Node 后端仍可独立启动。
+
 ## 启动
 
 需要 Node.js 22.12+ 和 npm。
